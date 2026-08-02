@@ -2,3 +2,4 @@
 .env
 # ignore the secrets folder
 secrets/
+*.env
