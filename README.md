@@ -1,6 +1,9 @@
 ## GitHub course
 
-```bash
-git clone https://github.com/your-username/weather-app.git
-cd weather-app
-```
+---
+
+## learning base where i can practice my GitHub learning journey from @Goobolabs
+
+### NB://
+
+**Note** this is not a project it just learingn repo.
