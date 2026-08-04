@@ -7,5 +7,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say Hello
-        run: echo "hello abdirahman"
+      # - name: Get The Code
+      #   uses: actions/checkout@v4
+      - name: Greet and Count The Files
+        env:
+          STUDENT_NAME: ${{ vars.STUDENT_NAME }}
+        run: echo "hello, ${{env.STUDENT_NAME}}!"
