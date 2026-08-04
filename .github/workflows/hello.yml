@@ -14,4 +14,4 @@ jobs:
           STUDENT_NAME: ${{ vars.STUDENT_NAME }}
         run: |
           COUNT=$(find . -type f -not -path './.git/*' | wc -l)
-          echo "Hello $STUDENT_NAME, your files count are $COUNT"
+          echo "Hello $STUDENT_NAME, you have $COUNT files in your repo"
