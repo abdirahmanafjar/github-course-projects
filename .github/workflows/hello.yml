@@ -5,6 +5,7 @@ on: push
 jobs:
   say-hello:
     runs-on: ubuntu-latest
+
     steps:
-      -name: say Hello
-       run: echo "hello abdirahman"
+      - name: Say Hello
+        run: echo "hello abdirahman"
