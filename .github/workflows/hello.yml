@@ -12,4 +12,4 @@ jobs:
       - name: Greet and Count The Files
         env:
           STUDENT_NAME: ${{ vars.STUDENT_NAME }}
-        run: echo "hello, ${{env.STUDENT_NAME}}!"
+        run: echo "hello, ${{STUDENT_NAME}}"
