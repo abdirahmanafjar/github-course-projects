@@ -1,0 +1,46 @@
+title: "Art topic exceeds max related topics limit"
+status: fixed
+severity: low
+component: topics/art
+
+summary: >
+  The topics test suite failed because the `related:` list in
+  topics/art/index.md contained more than the allowed 10 entries.
+
+environment:
+  ci: GitHub Actions
+  workflow: Test / test (topics)
+  ruby_version: "3.4.1"
+  bundler_ruby: "3.4.0"
+
+steps_to_reproduce:
+  - Open a pull request modifying topics/art/index.md
+  - Add more than 10 entries to the related: list
+  - CI runs the topics test suite (test/topics_test.rb)
+
+expected_behavior: >
+  The related topics list should contain 10 or fewer entries,
+  as required by the topic schema, and the test should pass.
+
+actual_behavior: >
+  Test failed with error: "should have no more than 10 related topics"
+  (test/topics_test.rb:153, topics::art topic#test_0012_has valid related topics)
+
+error_log: |
+  1) Failure:
+  topics::art topic#test_0012_has valid related topics [test/topics_test.rb:153]:
+  should have no more than 10 related topics
+  33345 runs, 2270345 assertions, 1 failures, 0 errors, 0 skips
+  rake aborted!
+  Command failed with status (1)
+
+root_cause: >
+  The related: field in topics/art/index.md was populated with more
+  than 10 topic references, violating the max-10 constraint enforced
+  by the test suite.
+
+fix: >
+  Trimmed the related: list in topics/art/index.md down to 10 or
+  fewer entries.
+
+fix_commit_message: "fix(art): trim related topics list to comply with 10-topic max"
